@@ -1,19 +1,14 @@
 import React from "react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "../ui/drawer";
-import { Button } from "../ui/button";
-import { MinusIcon, PlusIcon, Search } from "lucide-react";
-import SearchForm from "../forms/SearchForm";
+import Filter from "../Filter";
 
-const SearchDrawer = ({ children }) => {
+const FilterDrawer = ({ filter, setFilterField, children }) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>{children}</DrawerTrigger>
@@ -23,7 +18,7 @@ const SearchDrawer = ({ children }) => {
             <DrawerTitle>Passagens Aéreas</DrawerTitle>
           </DrawerHeader>
           <div className="py-1 px-4 ">
-            <SearchForm />
+            <Filter filter={filter} setFilterField={setFilterField} />
           </div>
         </div>
       </DrawerContent>
@@ -31,4 +26,4 @@ const SearchDrawer = ({ children }) => {
   );
 };
 
-export default SearchDrawer;
+export default FilterDrawer;

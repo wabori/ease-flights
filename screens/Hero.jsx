@@ -1,36 +1,41 @@
-import React, { useEffect, useRef } from 'react'
-import { Button } from '../components/ui/button'
-import {gsap} from 'gsap'
-import { KeyIcon, Search } from 'lucide-react'
-import { animateLogo, animateMenu, animateSearchButton } from '@/actions/animations'
-import Navbar from '../components/Navbar'
-import SearchDrawer from '../components/drawers/SearchDrawer'
-import Container from '@/components/Container'
+import React, { useEffect, useRef } from "react";
+import { Button } from "../components/ui/button";
+import { gsap } from "gsap";
+import { KeyIcon, Search } from "lucide-react";
+import {
+  animateLogo,
+  animateMenu,
+  animateSearchButton,
+} from "@/actions/animations";
+import Navbar from "../components/Navbar";
+import SearchDrawer from "../components/drawers/SearchDrawer";
+import Container from "@/components/Container";
 
 const Hero = () => {
-    const timeline = useRef(gsap.timeline())
-    useEffect(() => {
-        const context = gsap.context(() => {
-            const tl = timeline.current
-            tl
-                .add(animateSearchButton())
-                .add(animateMenu(), 0)
-                .add(animateLogo(), 0)
-        })
-        return () => context.revert()
-    }, [])
-    return (
-        <Container>
-            <Navbar />
-            <div className='fixed flex flex-row gap-3 items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-                <SearchDrawer />
-                <Button data-button variant='outline' className=' rounded-full hover:rotate-icon'>
-                    <KeyIcon className='mr-2 w-4 h-4 icon' /> Admin
-                </Button>
-            </div>
+  return (
+    <Container>
+      <Navbar />
+      <div className="fixed flex flex-row gap-3 items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <SearchDrawer>
+          <Button
+            data-button
+            color="#ff0000"
+            className="rounded-full  bg-black scale-x-150 lg:scale-100 hover:rotate-icon"
+          >
+            <Search className="sm:mr-2 h-4 w-4 icon" />
+            <span className="sm:block ml-2 hidden">Pesquisar</span>
+          </Button>
+        </SearchDrawer>
+        {/* <Button
+          data-button
+          variant="outline"
+          className=" rounded-full hover:rotate-icon"
+        >
+          <KeyIcon className="mr-2 w-4 h-4 icon" /> Admin
+        </Button> */}
+      </div>
+    </Container>
+  );
+};
 
-        </Container>
-    )
-}
-
-export default Hero
+export default Hero;
