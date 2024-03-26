@@ -31,14 +31,100 @@ export const animateSearchButton = () => {
   tl.fromTo(
     "[data-button]",
     {
+      width: 0,
+    },
+    {
+      width: "auto",
+    }
+  );
+
+  return tl;
+};
+
+export const animateAdminTabs = () => {
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "expo.inOut",
+      duration: 2,
+    },
+  });
+
+  tl.fromTo(
+    "[data-admin-tabs]",
+    {
       opacity: 0,
-      scaleX: 0,
-      scaleY: 0,
     },
     {
       opacity: 1,
-      scaleX: 1,
-      scaleY: 1,
+    }
+  );
+
+  return tl;
+};
+
+export const animateUsersPage = () => {
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "expo.inOut",
+      duration: 2,
+    },
+  });
+
+  tl.fromTo(
+    "[data-users-item]",
+    {
+      opacity: 0,
+      y: 20,
+    },
+    {
+      opacity: 1,
+      stagger: 0.4,
+      y: 0,
+    }
+  );
+
+  return tl;
+};
+
+export const animateRequestsPage = () => {
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "expo.inOut",
+      duration: 2,
+    },
+  });
+
+  tl.fromTo(
+    "[data-requests-item]",
+    {
+      opacity: 0,
+      y: 20,
+    },
+    {
+      opacity: 1,
+      stagger: 0.4,
+      y: 0,
+    }
+  );
+
+  return tl;
+};
+
+export const animateSearchButtonContent = () => {
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "expo.out",
+      duration: 2,
+    },
+  });
+
+  tl.fromTo(
+    "[data-button-content]",
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
     }
   );
 

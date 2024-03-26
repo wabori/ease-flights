@@ -2,6 +2,7 @@ import { User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Button } from "./ui/button";
 
 const Navbar = ({ page = "home" }) => {
   return (
@@ -19,16 +20,16 @@ const Navbar = ({ page = "home" }) => {
             </span>
           </p>
         </Link>
-        {page == "home" && (
-          <Link
+        <Link href={"/conta"} className="flex flex-row items-center">
+          <Button
             data-menu-item
-            href={"/conta"}
+            variant="ghost"
             className="flex flex-row items-center"
           >
             <User size={24} className="mr-2  text-[24px]" />{" "}
             <p className="text-[24px] hidden sm:block sm:text-[16px]">Conta</p>
-          </Link>
-        )}
+          </Button>
+        </Link>
       </nav>
     </header>
   );

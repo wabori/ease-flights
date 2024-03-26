@@ -10,6 +10,7 @@ import {
 import Navbar from "../components/Navbar";
 import SearchDrawer from "../components/drawers/SearchDrawer";
 import Container from "@/components/Container";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -22,17 +23,22 @@ const Hero = () => {
             color="#ff0000"
             className="rounded-full  bg-black scale-x-150 lg:scale-100 hover:rotate-icon"
           >
-            <Search className="sm:mr-2 h-4 w-4 icon" />
-            <span className="sm:block ml-2 hidden">Pesquisar</span>
+            <Search data-button-content className="sm:mr-2 h-4 w-4 icon" />
+            <span data-button-content className="sm:block ml-2 hidden">
+              Pesquisar
+            </span>
           </Button>
         </SearchDrawer>
-        {/* <Button
-          data-button
-          variant="outline"
-          className=" rounded-full hover:rotate-icon"
-        >
-          <KeyIcon className="mr-2 w-4 h-4 icon" /> Admin
-        </Button> */}
+        <Link href={"/admin"}>
+          <Button
+            data-button
+            variant="outline"
+            className=" rounded-full shadow-md hover:rotate-icon"
+          >
+            <KeyIcon data-button-content className="mr-2 w-4 h-4 icon" />
+            <span data-button-content>Admin</span>
+          </Button>
+        </Link>
       </div>
     </Container>
   );
